@@ -2,6 +2,10 @@
 
 Welcome to the Django Blog Website repository! This is a dynamic and interactive blog website built using Django, a Python-based web framework. The project showcases content and encourages community engagement through features such as user authentication, content management, commenting systems, and more.
 
+## Screenshots
+![App Screenshot](/Screenshots/HomePage.png)  
+
+
 ## Features
 
 - User authentication: Allow users to register, log in, and manage their accounts.
