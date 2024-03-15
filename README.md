@@ -5,7 +5,8 @@ Welcome to the Django Blog Website repository! This is a dynamic and interactive
 ## Screenshots
 ![App Screenshot](/Screenshots/HomePage.png)  
 ![App Screenshot](/Screenshots/Django-1.png)  
-![App Screenshot](/Screenshots/django_my_blogs.png)   
+![App Screenshot](/Screenshots/django_my_blogs.png) 
+![App Screenshot](/Screenshots/comments.png) 
 ![App Screenshot](/Screenshots/django_profile_page.png)  
 ![App Screenshot](/Screenshots/django_Login_page.png)  
 
@@ -18,7 +19,7 @@ Welcome to the Django Blog Website repository! This is a dynamic and interactive
 - Commenting system: Engage with your audience by enabling comments on blog posts.
 - Responsive design: Ensure optimal user experience across devices with a responsive layout.
 - Security: Implement built-in Django security features to protect against common web vulnerabilities.
-- Database integration: Utilize Django's ORM to interact with databases like SQLite or PostgreSQL efficiently.
+- Database integration: Utilize Django's ORM to interact with databases SQLite  efficiently.
 - Scalability: Designed to scale with your growing user base and content.
 
 ## Run Locally  
