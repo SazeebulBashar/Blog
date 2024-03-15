@@ -6,7 +6,9 @@ Welcome to the Django Blog Website repository! This is a dynamic and interactive
 ![App Screenshot](/Screenshots/HomePage.png)  
 ![App Screenshot](/Screenshots/Django-1.png)  
 ![App Screenshot](/Screenshots/django_my_blogs.png) 
-![App Screenshot](/Screenshots/comments.png) 
+![App Screenshot](/Screenshots/django_full_blog_page.png) 
+![App Screenshot](/Screenshots/comments.png)
+![App Screenshot](/Screenshots/like%20and%20Comment%20sample.png)
 ![App Screenshot](/Screenshots/django_profile_page.png)  
 ![App Screenshot](/Screenshots/django_Login_page.png)  
 
