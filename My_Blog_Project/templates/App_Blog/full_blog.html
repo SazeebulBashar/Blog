@@ -44,9 +44,15 @@
               <!-- Start comment-list -->
               <div class="pt-5 comment-wrap">
                 {% if liked %}
-                <a href="{% url 'App_Blog:unliked_post' pk=blog.pk %}">dislike</a>
+                <a href="{% url 'App_Blog:unliked_post' pk=blog.pk %}">
+                  {% comment %} <span class="lnr lnr-thumbs-down"></span> {% endcomment %}
+                  <i class="fa-solid fa-thumbs-up fa-3x" ></i>
+                </a>
                 {% else %}
-                <a href="{% url 'App_Blog:liked_post' pk=blog.pk %}">like</a>
+                <a href="{% url 'App_Blog:liked_post' pk=blog.pk %}">
+                  {% comment %} <span class="lnr lnr-thumbs-up"></span> {% endcomment %}
+                  <i class="fa-regular fa-thumbs-up fa-3x"></i>
+                </a>
                 {% endif %}
                 <br> <br>
                 <h3 class="mb-5 heading"> {{blog.liked_blog.count}} Likes | {{blog.blog_comment.count}} Comments</h3>
