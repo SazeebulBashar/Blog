@@ -16,7 +16,7 @@ Welcome to the Django Blog Website repository! This is a dynamic and interactive
 ### 1. Clone the project  
 
 ~~~bash  
- git clone https://github.com/your_username/django-blog.git
+ git clone https://github.com/SazeebulBashar/Blog.git
 ~~~
 
 ### 2. Activate Environment
