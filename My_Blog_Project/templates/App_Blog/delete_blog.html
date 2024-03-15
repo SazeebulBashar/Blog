@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title_block %} Delete Blog {% endblock %}
+{% block body_block %}
+<br><br>
+<div class="container text-center">
+    <form method="post">
+        {% csrf_token %}
+    
+        <h1>Are you sure you want to delete "{{ object }}"?</h1>   
+        <input type="submit" value="Confirm" class="btn btn-danger btn-sm">
+        <a href="{% url 'App_Blog:my_blog' %}" class="btn btn-primary btn-sm">Cancel</a>
+        </form>
+</div>
+<br><br>
+    
+
+{% endblock  %}

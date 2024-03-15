@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load custom_filters %}
+{% block title_block %} {{user}}'s Blog {% endblock %}
+
+{% comment %} {% block body_block %}
+<br><br>
+    <div class="container">
+        {% for blog in user.post_author.all  %}
+    {{blog.blog_title}}
+    <h6> {{blog.publish_date}} </h6>
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="/media/{{blog.blog_image}}" width="100%">
+        </div>
+        <div class="col-sm-8">
+            <p>{{blog.blog_content | linebreaks | range_filter}} <a href="{% url 'App_Blog:blog_details' slug=blog.slug %}">Read More</a></p>
+            <h6>Written By: <a href="#">{{blog.author}}</a></h6>
+            <h6> {{blog.liked_blog.count}} Likes | {{blog.blog_comment.count}} Comments </h6> 
+
+        </div>
+        <a href="{% url 'App_Blog:edit_blog' pk=blog.pk %}">Edit</a>
+    </div>
+    <hr>
+    {% endfor %}
+    </div>
+    <br><br>
+{% endblock  %} {% endcomment %}
+
+{% block body_block %} 
+<br><br>
+<div class="container">
+    {% for blog in user.post_author.all %}
+          <div class="container">
+            <div class="blog-entry d-flex blog-entry-search-item">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <a href="single.html" class="img-link me-4">
+                            <img src="/media/{{blog.blog_image}}" alt="Image" class="img-fluid">
+                          </a>
+                    </div>
+                    <div class="col-sm-10">
+                        <div>
+                            <span class="date">{{blog.publish_date}}  </span>
+                            <h2><a href="single.html"> {{blog.blog_title}} </a></h2>
+                            <p>{{blog.blog_content | range_filter }}  </p>
+                            <h6>Written By: <a href="#">{{blog.author}}</a></h6>
+                            <h6> {{blog.liked_blog.count}} Likes | {{blog.blog_comment.count}} Comments </h6>
+                            <a href="{% url 'App_Blog:blog_details' slug=blog.slug %}" class="btn btn-sm btn-outline-primary">Read More</a>
+                            <a href="{% url 'App_Blog:edit_blog' pk=blog.pk %}" class="btn btn-sm btn-outline-primary">Edit Blog</a>
+                            <a href="{% url 'App_Blog:delete_blog' pk=blog.pk %}" class="btn btn-sm btn-outline-danger">Delete Blog</a>
+                            
+                          </div>
+                    </div>
+                </div>
+              </div>
+              <hr><br>
+          </div>
+      {% endfor %}
+</div>
+<br><br>
+
+{% endblock %} 
+
+
+
+
+    

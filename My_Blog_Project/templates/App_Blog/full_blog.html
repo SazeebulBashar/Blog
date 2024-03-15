@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title_block %}
+    {{blog.blog_title}}
+{% endblock title_block %}
+    
+{% block body_block %}
+
+    <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('/media/{{blog.blog_image}}') ;">
+        <div class="container">
+          <div class="row same-height justify-content-center">
+            <div class="col-md-6">
+              <div class="post-entry text-center">
+                <h1 class="mb-4"> {{blog.blog_title}} </h1>
+                <div class="post-meta align-items-center text-center">
+                  {% comment %} <figure class="author-figure mb-0 me-3 d-inline-block">
+                    <img src="images/person_1.jpg" alt="Image" class="img-fluid">
+                  </figure> {% endcomment %}
+                  <span class="d-inline-block mt-1">By - {{blog.author}}, on </span>
+                  <span> {{blog.publish_date}} </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="container">
+    
+          <div class="row blog-entries element-animate">
+    
+            <div class="col-md-12 col-lg-8 main-content">
+    
+              <div class="post-content-body">
+                {{blog.blog_content | linebreaks}}
+              </div>
+    
+
+    
+              
+    
+              <!-- Start comment-list -->
+              <div class="pt-5 comment-wrap">
+                {% if liked %}
+                <a href="{% url 'App_Blog:unliked_post' pk=blog.pk %}">dislike</a>
+                {% else %}
+                <a href="{% url 'App_Blog:liked_post' pk=blog.pk %}">like</a>
+                {% endif %}
+                <br> <br>
+                <h3 class="mb-5 heading"> {{blog.liked_blog.count}} Likes | {{blog.blog_comment.count}} Comments</h3>
+                <ul class="comment-list">
+
+                  {% for comment in blog.blog_comment.all %}
+                  
+                  <li class="comment">
+                    {% comment %} <div class="vcard">
+                      <img src="images/person_1.jpg" alt="Image placeholder">
+                    </div> {% endcomment %}
+                    <div class="comment-body">
+                      <h3> {{comment.user}} </h3>
+                      <div class="meta"> {{comment.comment_date}} </div>
+                      <p> {{comment.comment}} </p>
+                      <p><a href="#" class="reply rounded">Reply</a></p>
+                    </div>
+                  </li>
+                  
+                  {% endfor %}
+
+                </ul>
+                <!-- END comment-list -->
+    
+                <div class="comment-form-wrap pt-5">
+                  <h3 class="mb-5">Leave a comment</h3>
+                  <form method="POST" class="p-5 bg-light">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      {{ comment_form | crispy }}
+                    </div>
+                    <div class="form-group">
+                      <input type="submit" value="Post Comment" class="btn btn-primary">
+                    </div>
+    
+                  </form>
+                </div>
+              </div>
+    
+            </div>
+    
+            <!-- END main-content -->
+    
+            <div class="col-md-12 col-lg-4 sidebar">
+       
+              <div class="sidebar-box">
+                <div class="bio text-center">
+                  {% comment %} <img src="/media/profile_pics/profile_pic.png" alt="Image Placeholder" class="img-fluid mb-3"> {% endcomment %}
+                    <h2> {{blog.post_author}} </h2>
+                  <div class="bio-body">
+                    <h2> {{blog.author}}</h2>
+                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt repellendus excepturi beatae porro debitis voluptate nulla quo veniam fuga sit molestias minus.</p>
+                    <p><a href="#" class="btn btn-primary btn-sm rounded px-2 py-2">Read my bio</a></p>
+                    <p class="social">
+                      <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
+                      <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
+                      <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
+                      <a href="#" class="p-2"><span class="fa fa-youtube-play"></span></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </section>
+
+
+{% endblock  %}
+
+
+
+
